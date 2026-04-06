@@ -24,22 +24,11 @@ const shots = [
     label: "파산 경매 대시보드 — Claude AI 구조화",
     desc: "법원 파산경매 공고 PDF를 Claude Sonnet이 자동으로 JSON 구조화. 87건 PDF에서 물건 정보, 감정가, 소재지를 추출해 테이블로 정리.",
   },
-  {
-    src: "/screenshots/sales-analysis-viewport.png",
-    label: "매출 분석 대시보드",
-    desc: "일별/월별 매출 트렌드와 카테고리별 분석. 이 데이터를 경매 투자 수익률 산출에 활용.",
-  },
-  {
-    src: "/screenshots/hyundai-parts-viewport.png",
-    label: "현대기아 부품 대리점 벤치마킹",
-    desc: "경매 물건 중 자동차 부품 대리점 인수 검토를 위한 벤치마킹 분석. 매출 규모, 직원 수, 지역 분포를 비교.",
-  },
 ];
 
 const tech = [
   "Python", "React 19", "Vite", "Tailwind CSS",
-  "Google Maps", "Claude AI", "Disco API", "OnBid API",
-  "PyPDF2", "concurrent.futures",
+  "Google Maps", "Claude AI", "PyPDF2", "concurrent.futures",
 ];
 
 export default function AuctionSystemTab() {

@@ -49,7 +49,7 @@ const shots = [
 
 const tech = [
   "HTML/CSS/JS", "Leaflet.js", "Chart.js",
-  "Veo (AI 영상)", "Python", "Nemo API",
+  "Veo (AI 영상)", "Python",
 ];
 
 export default function JayangdongTab() {

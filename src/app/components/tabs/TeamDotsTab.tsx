@@ -43,15 +43,14 @@ const shots = [
 
 const tech = [
   "Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4",
-  "Recharts", "Supabase", "Claude API",
-  "Etherscan API", "Naver Maps", "Google OAuth",
+  "Recharts", "Supabase", "Claude API", "Google OAuth",
 ];
 
 export default function TeamDotsTab() {
   return (
     <div className="space-y-10">
       <div>
-        <h2 className="text-3xl font-bold mb-3">Team Dots AI</h2>
+        <h2 className="text-3xl font-bold mb-3">Team Dots</h2>
         <p className="text-xl text-[--color-text] font-semibold mb-2">
           크립토 · R&D · 비즈니스 · 부동산 4개 팀을 AI로 통합 관리하는 대시보드
         </p>

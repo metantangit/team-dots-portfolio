@@ -27,7 +27,7 @@ export default function Hero() {
           transition={{ delay: 0.1 }}
           className="text-[--color-text-muted] text-sm tracking-[0.2em] uppercase mb-6"
         >
-          Portfolio
+          Team Dots Portfolio
         </motion.p>
 
         <motion.h1

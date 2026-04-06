@@ -6,7 +6,6 @@ import ContentFactoryTab from "./tabs/ContentFactoryTab";
 import AuctionSystemTab from "./tabs/AuctionSystemTab";
 import JayangdongTab from "./tabs/JayangdongTab";
 import NewlistingTab from "./tabs/NewlistingTab";
-import DadareumTab from "./tabs/DadareumTab";
 import TeamDotsTab from "./tabs/TeamDotsTab";
 import GigHunterTab from "./tabs/GigHunterTab";
 import OthersTab from "./tabs/OthersTab";
@@ -23,7 +22,7 @@ const groups = [
     label: "콘텐츠 · AI",
     tabs: [
       { id: "content-factory", label: "Content Factory" },
-      { id: "teamdots", label: "Team Dots AI" },
+      { id: "teamdots", label: "Team Dots" },
     ],
   },
   {
@@ -36,7 +35,6 @@ const groups = [
   {
     label: "기타",
     tabs: [
-      { id: "dadareum", label: "프랜차이즈 AI" },
       { id: "others", label: "기타 프로젝트" },
     ],
   },
@@ -49,7 +47,6 @@ const tabContent: Record<string, React.ReactNode> = {
   "auction": <AuctionSystemTab />,
   "jayangdong": <JayangdongTab />,
   "newlisting": <NewlistingTab />,
-  "dadareum": <DadareumTab />,
   "teamdots": <TeamDotsTab />,
   "gig-hunter": <GigHunterTab />,
   "others": <OthersTab />,
