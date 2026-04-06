@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Team Dots Portfolio",
-  description: "Portfolio variants - pick your style",
+  description: "AI 자동화 프로젝트 포트폴리오",
 };
 
 export default function RootLayout({

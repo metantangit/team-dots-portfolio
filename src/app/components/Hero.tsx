@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 
 const tags = [
-  "AI Pipeline",
-  "Data Automation",
-  "Fullstack",
-  "Trading Bot",
-  "Agent Orchestration",
-  "Computer Vision",
-  "Real Estate Tech",
-  "Content Automation",
+  "AI 자동화",
+  "데이터 분석",
+  "웹/앱 제작",
+  "영상 자동 제작",
+  "부동산 분석",
+  "트레이딩",
+  "대시보드",
+  "업무 자동화",
 ];
 
 export default function Hero() {
@@ -47,9 +47,9 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="text-lg text-[--color-text-muted] mb-10 leading-relaxed"
         >
-          데이터 수집부터 AI 분석, 대시보드 시각화, 자동화 봇까지
+          반복되는 업무를 AI로 자동화하고
           <br />
-          아이디어를 실제 작동하는 시스템으로 만듭니다
+          데이터를 한눈에 보여주는 시스템을 만듭니다
         </motion.p>
 
         {/* Capability Tags */}

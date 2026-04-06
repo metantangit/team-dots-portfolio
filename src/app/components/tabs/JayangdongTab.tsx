@@ -122,11 +122,26 @@ export default function JayangdongTab() {
         </div>
       </div>
 
+      {/* Veo AI 영상 */}
       <div>
-        <h4 className="text-sm font-medium text-[--color-text-muted] mb-3 uppercase tracking-wider">
-          기술 스택
+        <h4 className="text-sm font-medium text-[--color-text-muted] mb-4 uppercase tracking-wider">
+          AI 영상 투어
         </h4>
-        <TechBadge tech={tech} />
+        <div className="max-w-lg">
+          <div className="rounded-xl overflow-hidden border border-[--color-border] bg-[--color-card]">
+            <video
+              src="/videos/jayang-dentist.mp4"
+              controls
+              muted
+              playsInline
+              className="w-full aspect-video object-cover"
+            />
+            <div className="px-4 py-2.5 border-t border-[--color-border]">
+              <p className="text-xs font-medium text-[--color-text]">치과 개원 홍보 영상</p>
+              <p className="text-[11px] text-[--color-text-muted] mt-1">Google Veo AI로 제작한 치과 개원 타겟 영상</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>
@@ -134,6 +149,13 @@ export default function JayangdongTab() {
           스크린샷
         </h4>
         <ScreenshotGallery shots={shots} />
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium text-[--color-text-muted] mb-3 uppercase tracking-wider">
+          사용 기술
+        </h4>
+        <TechBadge tech={tech} />
       </div>
     </div>
   );
