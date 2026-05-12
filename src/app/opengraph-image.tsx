@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "dots-project — small AI systems for real work";
+export const alt = "dots-project — KAIST 출신 개발자의 AI 비즈니스 자동화";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,24 +14,34 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: 64,
-          background: "#fff4d8",
-          color: "#4b2558",
+          padding: 72,
+          background: "#f4f0e7",
+          color: "#1a1a1a",
           fontFamily: "Arial",
-          position: "relative",
-          overflow: "hidden",
         }}
       >
-        <div style={{ position: "absolute", width: 260, height: 260, borderRadius: 999, background: "#ff6f61", right: 80, top: 70 }} />
-        <div style={{ position: "absolute", width: 210, height: 210, borderRadius: 999, background: "#cfff47", right: 260, bottom: 70 }} />
-        <div style={{ position: "absolute", width: 190, height: 190, borderRadius: 999, background: "#9ed4ff", left: 80, bottom: 85 }} />
-        <div style={{ position: "relative", fontSize: 22, fontWeight: 900, letterSpacing: -1 }}>dots-project</div>
-        <div style={{ position: "relative", maxWidth: 760, fontSize: 82, lineHeight: 0.95, letterSpacing: -6, fontWeight: 900 }}>
-          복잡한 일을 작게 접어, 쓰이는 도구로.
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", fontSize: 20, letterSpacing: -0.5 }}>
+          <span style={{ fontWeight: 700 }}>dots-project.work</span>
+          <span style={{ color: "#a85b3a", fontWeight: 600, letterSpacing: 4, textTransform: "uppercase", fontSize: 16 }}>
+            AI Automation Studio · Seoul
+          </span>
         </div>
-        <div style={{ position: "relative", display: "flex", justifyContent: "space-between", fontSize: 22, fontWeight: 700 }}>
-          <span>AI workshop · small systems · founder-operator</span>
-          <span>dots-project.work</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: 6, textTransform: "uppercase", color: "#a85b3a" }}>
+            since 2024
+          </div>
+          <div style={{ fontSize: 88, lineHeight: 1.04, letterSpacing: -3, fontWeight: 600, maxWidth: 1000 }}>
+            KAIST 출신 개발자의
+            <br />
+            AI 비즈니스 자동화.
+          </div>
+          <div style={{ fontSize: 24, color: "#404040", maxWidth: 920, lineHeight: 1.4 }}>
+            반복되는 운영을 AI 도구로 정리합니다. 강의와 개발을 같이 합니다.
+          </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", fontSize: 18, color: "#737373", borderTop: "1px solid #d9d4c7", paddingTop: 20 }}>
+          <span>오장섭 · 주식회사 이집저집</span>
+          <span>ojsoym2@gmail.com · 010-4685-9570</span>
         </div>
       </div>
     ),

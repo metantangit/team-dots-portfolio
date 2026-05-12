@@ -9,11 +9,11 @@ const SITE_URL = "https://dots-project.work";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "dots-project — 작게 시스템화하는 AI 작업장",
+    default: "dots-project — KAIST 출신 개발자의 AI 비즈니스 자동화",
     template: "%s · dots-project",
   },
   description:
-    "오장섭의 AI 작업장. 흩어진 자료, 반복 업무, 늦어지는 판단을 작게 접어 실제로 쓰이는 도구로 남깁니다.",
+    "반복되는 운영을 AI 도구로 정리합니다. KAIST 출신 개발자의 AI 자동화 작업실. 강의와 개발을 같이 합니다.",
   openGraph: {
     type: "website",
     locale: "ko_KR",
