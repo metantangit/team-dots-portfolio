@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cases } from "../../content/cases";
 import Container from "../components/Container";
 import SectionLabel from "../components/SectionLabel";
-import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import SiteHeader from "../components/SiteHeader";
+import { workPieces } from "../../content/site";
 import WorkGrid from "./WorkGrid";
 
 export const metadata: Metadata = {
-  title: "작업",
-  description:
-    "강의로 시작해 공동 프로젝트, 장기 계약, B2B 확장으로 이어진 세 케이스.",
+  title: "작업 조각",
+  description: "고객 식별 정보 대신 문제 흐름과 만든 도구를 보여주는 Dots 작업 조각들.",
   alternates: { canonical: "/work" },
 };
 
@@ -18,42 +17,26 @@ export default function WorkPage() {
   return (
     <>
       <SiteHeader />
-      <main className="pt-32 pb-0">
-        {/* Page header */}
-        <section className="py-16 md:py-24 border-b border-[--color-paper-edge]">
-          <Container size="wide">
-            <SectionLabel>시그니처 작업</SectionLabel>
-            <h1 className="mt-6 font-[family-name:var(--font-serif-ko)] text-[2.2rem] sm:text-[3rem] md:text-[3.75rem] leading-[1.1] tracking-[-0.02em] text-[--color-ink] max-w-2xl">
-              강의에서
-              <br />
-              개발로 흐른다.
+      <main className="py-10 md:py-16">
+        <Container size="wide">
+          <section className="rounded-[2.75rem] bg-[#b8f7cf] p-7 shadow-[0_18px_0_rgba(75,37,88,0.12)] md:p-10">
+            <SectionLabel>work pieces</SectionLabel>
+            <h1 className="mt-8 max-w-5xl text-5xl font-black leading-[0.95] tracking-[-0.075em] md:text-8xl">
+              보여줄 수 있는 만큼만, 그러나 흐름은 분명하게.
             </h1>
-            <p className="mt-6 text-sm md:text-base text-[--color-ink-soft] leading-[1.8] max-w-lg">
-              세 케이스 모두{" "}
-              <span className="text-[--color-accent]">강의·교육으로 시작</span>
-              해 공동 프로젝트, 장기 계약, B2B 확장으로 이어졌습니다.
+            <p className="mt-8 max-w-2xl text-lg leading-9 text-[var(--color-ink-soft)]">
+              고객 이름이나 원본 자료 없이도 어떤 반복을 줄이고 어떤 도구를 남겼는지는 설명할 수 있습니다.
             </p>
-          </Container>
-        </section>
+          </section>
 
-        {/* Magazine grid */}
-        <section>
-          <Container size="wide">
-            <WorkGrid cases={cases} />
-          </Container>
-        </section>
+          <section className="mt-8">
+            <WorkGrid pieces={workPieces} />
+          </section>
 
-        {/* Back to home */}
-        <div className="border-t border-[--color-paper-edge] py-8">
-          <Container size="wide">
-            <Link
-              href="/"
-              className="text-xs uppercase tracking-[0.25em] text-[--color-muted] hover:text-[--color-accent] transition-colors"
-            >
-              ← 홈으로
-            </Link>
-          </Container>
-        </div>
+          <div className="py-8">
+            <Link href="/" className="font-black text-[var(--color-accent)]">← 홈으로</Link>
+          </div>
+        </Container>
       </main>
       <SiteFooter />
     </>

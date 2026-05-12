@@ -1,25 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "OHJANGSEOP — Dots, · KAIST AI Developer × Lecturer";
+export const alt = "dots-project — small AI systems for real work";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadFont(family: string, weight: number, italic = false) {
-  const css = await fetch(
-    `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, "+")}:ital,wght@${italic ? 1 : 0},${weight}&display=swap`,
-    { headers: { "User-Agent": "Mozilla/5.0" } },
-  ).then((r) => r.text());
-  const url = css.match(/src:\s*url\((https:\/\/[^)]+\.ttf)\)/)?.[1];
-  if (!url) throw new Error(`Font URL not found for ${family}`);
-  return fetch(url).then((r) => r.arrayBuffer());
-}
-
-export default async function Image() {
-  const [newsreaderItalic, newsreaderRegular] = await Promise.all([
-    loadFont("Newsreader", 400, true),
-    loadFont("Newsreader", 600, false),
-  ]);
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -29,85 +14,27 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px 80px",
-          background: "#0a0a0a",
-          color: "#f4f0e7",
-          fontFamily: "Newsreader",
+          padding: 64,
+          background: "#fff4d8",
+          color: "#4b2558",
+          fontFamily: "Arial",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            fontSize: 18,
-            letterSpacing: 6,
-            textTransform: "uppercase",
-            color: "#6e6a62",
-          }}
-        >
-          <span style={{ width: 32, height: 1, background: "#2a2826" }} />
-          <span style={{ color: "#f4f0e7", letterSpacing: 8 }}>KAIST</span>
-          <span style={{ color: "#2a2826" }}>/</span>
-          <span style={{ fontStyle: "italic", color: "#c9a86a", letterSpacing: 0, textTransform: "none", fontSize: 22 }}>
-            Seoul
-          </span>
+        <div style={{ position: "absolute", width: 260, height: 260, borderRadius: 999, background: "#ff6f61", right: 80, top: 70 }} />
+        <div style={{ position: "absolute", width: 210, height: 210, borderRadius: 999, background: "#cfff47", right: 260, bottom: 70 }} />
+        <div style={{ position: "absolute", width: 190, height: 190, borderRadius: 999, background: "#9ed4ff", left: 80, bottom: 85 }} />
+        <div style={{ position: "relative", fontSize: 22, fontWeight: 900, letterSpacing: -1 }}>dots-project</div>
+        <div style={{ position: "relative", maxWidth: 760, fontSize: 82, lineHeight: 0.95, letterSpacing: -6, fontWeight: 900 }}>
+          복잡한 일을 작게 접어, 쓰이는 도구로.
         </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-          <div
-            style={{
-              fontSize: 96,
-              fontWeight: 600,
-              lineHeight: 1.05,
-              letterSpacing: -2,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <span>OHJANGSEOP</span>
-            <span style={{ fontStyle: "italic", color: "#c9a86a", fontWeight: 400 }}>
-              Dots,
-            </span>
-          </div>
-          <div
-            style={{
-              fontSize: 28,
-              color: "#b8b3a8",
-              fontStyle: "italic",
-              maxWidth: 820,
-              lineHeight: 1.4,
-            }}
-          >
-            AI Developer × Lecturer — teaching builds trust, trust ships product.
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            borderTop: "1px solid #2a2826",
-            paddingTop: 24,
-            fontSize: 16,
-            letterSpacing: 4,
-            textTransform: "uppercase",
-            color: "#6e6a62",
-          }}
-        >
-          <span>12+ cases · 5 modules · 852 records</span>
-          <span style={{ color: "#c9a86a", letterSpacing: 0, textTransform: "none", fontStyle: "italic", fontSize: 20 }}>
-            dots-project.work
-          </span>
+        <div style={{ position: "relative", display: "flex", justifyContent: "space-between", fontSize: 22, fontWeight: 700 }}>
+          <span>AI workshop · small systems · founder-operator</span>
+          <span>dots-project.work</span>
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        { name: "Newsreader", data: newsreaderRegular, style: "normal", weight: 600 },
-        { name: "Newsreader", data: newsreaderItalic, style: "italic", weight: 400 },
-      ],
-    },
+    size,
   );
 }

@@ -1,78 +1,30 @@
 import Link from "next/link";
 import Container from "./Container";
 
-// Reduced to 3 items for visual breathing — Clients & Contact are #anchors reachable via scroll
 const navItems = [
-  { href: "/work", labelEn: "WORK", labelKo: "작업" },
-  { href: "/lectures", labelEn: "LECTURES", labelKo: "강의" },
-  { href: "/about", labelEn: "ABOUT", labelKo: "소개" },
+  { href: "/work", label: "작업" },
+  { href: "/lectures", label: "강의" },
+  { href: "/about", label: "소개" },
 ];
 
 export default function SiteHeader() {
   return (
-    <header className="absolute top-0 inset-x-0 z-20 pt-8">
+    <header className="sticky top-0 z-50 py-4">
       <Container size="wide">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-baseline gap-1.5">
-            <span className="font-[family-name:var(--font-serif-en)] italic text-2xl text-[--color-ink]">
-              Dots
-            </span>
-            <span className="text-2xl text-[--color-accent] -ml-1">,</span>
+        <div className="flex items-center justify-between rounded-full border-2 border-[var(--color-ink)]/15 bg-[var(--color-paper)]/80 px-4 py-3 shadow-[0_10px_0_rgba(75,37,88,0.1)] backdrop-blur-md">
+          <Link href="/" className="flex items-center gap-2 font-black tracking-[-0.04em] text-[var(--color-ink)]">
+            <span className="grid size-9 place-items-center rounded-full bg-[#cfff47] text-lg">·</span>
+            <span>dots-project</span>
           </Link>
-
-          {/* Bracket nav — desktop (md+) */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="주요 메뉴">
+          <nav className="hidden items-center gap-1 md:flex" aria-label="주요 메뉴">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex items-center gap-0.5 text-[11px] text-[--color-ink-soft] hover:text-[--color-ink] transition-colors"
-              >
-                <span
-                  aria-hidden
-                  className="text-[--color-muted] group-hover:text-[--color-accent] transition-all duration-200 group-hover:-translate-x-0.5 inline-block"
-                >
-                  [
-                </span>
-                <span className="uppercase tracking-[0.18em] px-1 group-hover:text-[--color-ink] transition-colors">
-                  {item.labelEn}
-                </span>
-                <span aria-hidden className="text-[--color-muted] px-0.5 text-[10px]">
-                  /
-                </span>
-                <span className="font-[family-name:var(--font-serif-ko)] px-1 group-hover:text-[--color-accent] transition-colors normal-case tracking-normal text-[12px]">
-                  {item.labelKo}
-                </span>
-                <span
-                  aria-hidden
-                  className="text-[--color-muted] group-hover:text-[--color-accent] transition-all duration-200 group-hover:translate-x-0.5 inline-block"
-                >
-                  ]
-                </span>
+              <Link key={item.href} href={item.href} className="rounded-full px-4 py-2 text-sm font-bold text-[var(--color-ink-soft)] transition hover:bg-[#cfff47] hover:text-[var(--color-ink)]">
+                {item.label}
               </Link>
             ))}
           </nav>
-
-          {/* Compact KO nav — mobile (<md) */}
-          <nav className="flex md:hidden items-center gap-4" aria-label="주요 메뉴">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="font-[family-name:var(--font-serif-ko)] text-[13px] text-[--color-ink-soft] hover:text-[--color-accent] transition-colors"
-              >
-                {item.labelKo}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA pill */}
-          <Link
-            href="/#contact"
-            className="text-sm px-4 py-2 rounded-full border border-[--color-paper-edge] text-[--color-ink] hover:bg-[--color-ink] hover:text-[--color-paper] transition-colors"
-          >
-            의뢰하기
+          <Link href="/#contact" className="rounded-full bg-[var(--color-accent)] px-4 py-2 text-sm font-black text-[#fff8e8] shadow-[0_5px_0_#b54d48]">
+            이야기하기
           </Link>
         </div>
       </Container>

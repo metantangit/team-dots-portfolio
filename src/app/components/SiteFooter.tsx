@@ -1,59 +1,26 @@
 import Container from "./Container";
+import { studio } from "../../content/site";
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[--color-paper-edge] py-12 mt-32">
+    <footer className="py-12">
       <Container size="wide">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] text-sm">
-          <div>
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="font-[family-name:var(--font-serif-en)] italic text-xl">
-                Dots
-              </span>
-              <span className="text-xl text-[--color-accent] -ml-0.5">,</span>
+        <div className="rounded-[2rem] bg-[var(--color-bg-deep)] p-6 text-[#fff4d8] md:p-8">
+          <div className="grid gap-6 md:grid-cols-[1.3fr_1fr_1fr]">
+            <div>
+              <p className="text-2xl font-black tracking-[-0.05em]">dots-project</p>
+              <p className="mt-3 max-w-md text-sm leading-7 text-[#ffd9bd]">{studio.description}</p>
             </div>
-            <p className="text-[--color-ink-soft] leading-relaxed max-w-sm text-sm">
-              강의로 신뢰가 쌓이면, 그 자리에서 다음 일이 시작됩니다.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-[--color-muted] uppercase tracking-[0.2em] text-xs mb-3">
-              Contact
-            </p>
-            <ul className="space-y-1.5 text-[--color-ink-soft]">
-              <li>
-                <a
-                  href="mailto:ojsoym2@gmail.com"
-                  className="hover:text-[--color-accent] transition-colors"
-                >
-                  ojsoym2@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+821046859570"
-                  className="hover:text-[--color-accent] transition-colors"
-                >
-                  010-4685-9570
-                </a>
-              </li>
-              <li>카카오 dots_connect</li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-[--color-muted] uppercase tracking-[0.2em] text-xs mb-3">
-              Site
-            </p>
-            <ul className="space-y-1.5 text-[--color-ink-soft]">
-              <li className="font-[family-name:var(--font-serif-en)]">
-                dots-project.work
-              </li>
-              <li className="text-xs text-[--color-muted] mt-2">
-                © {new Date().getFullYear()} 주식회사 이집저집
-              </li>
-            </ul>
+            <div className="text-sm leading-7 text-[#ffd9bd]">
+              <p className="font-black text-[#cfff47]">contact</p>
+              <a className="block hover:text-white" href={`mailto:${studio.email}`}>{studio.email}</a>
+              <a className="block hover:text-white" href="tel:+821046859570">{studio.phone}</a>
+              <p>Kakao {studio.kakao}</p>
+            </div>
+            <div className="text-sm leading-7 text-[#ffd9bd] md:text-right">
+              <p>{studio.url}</p>
+              <p>© {new Date().getFullYear()} {studio.company}</p>
+            </div>
           </div>
         </div>
       </Container>
