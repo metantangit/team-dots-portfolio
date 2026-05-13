@@ -413,21 +413,29 @@ export default function Home() {
         <p className="mt-10 max-w-2xl text-sm text-[var(--color-muted)]">
           진행 중 또는 완료된 의뢰·강의·코칭 기준. 고객사 정보는 비공개로 두고 업종만 공개합니다.
         </p>
-        <ul className="mt-10 grid gap-x-10 gap-y-3 md:grid-cols-2">
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {trustBar.map((t, i) => (
             <li
               key={i}
-              className="grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-[var(--color-line)]/60 py-3 text-sm"
+              className="group flex flex-col justify-between gap-6 rounded-md border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition hover:border-[var(--color-ink)]/50 md:p-7"
             >
               <span
-                style={{ fontFamily: "var(--font-serif-ko)" }}
-                className="text-base text-[var(--color-ink)]"
+                style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
+                className="text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]"
               >
-                {t.industry}
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-[12px] text-[var(--color-muted)]">
-                {t.note}
-              </span>
+              <div>
+                <p
+                  style={{ fontFamily: "var(--font-serif-ko)" }}
+                  className="text-2xl leading-tight tracking-[-0.02em] text-[var(--color-ink)] md:text-[1.75rem]"
+                >
+                  {t.industry}
+                </p>
+                <p className="mt-3 text-sm text-[var(--color-muted)]">
+                  {t.note}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
