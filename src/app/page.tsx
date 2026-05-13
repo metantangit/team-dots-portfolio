@@ -1,9 +1,11 @@
 import Link from "next/link";
+import InquiryForm from "./components/InquiryForm";
 import {
   studio,
   services,
   signatureCases,
-  moreWork,
+  signatureIntro,
+  capabilities,
   sessions,
   experiments,
   trustBar,
@@ -76,7 +78,7 @@ export default function Home() {
           style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
           className="text-base text-[var(--color-accent)] md:text-lg"
         >
-          AI Automation Studio &mdash; Seoul, KR
+          ThTh, Seoul, KR
         </p>
         <h1
           style={{ fontFamily: "var(--font-serif-ko)" }}
@@ -170,8 +172,11 @@ export default function Home() {
           style={{ fontFamily: "var(--font-serif-ko)" }}
           className="mt-12 max-w-3xl text-2xl leading-[1.35] tracking-[-0.02em] md:text-[2rem]"
         >
-          강의로 시작해서 도구로 끝나는 세 가지 흐름.
+          강의로 만난 한 분이, 더 큰 협업으로 이어지는 흐름.
         </h2>
+        <p className="mt-6 max-w-2xl text-base leading-[1.85] text-[var(--color-ink-soft)] md:text-lg">
+          {signatureIntro}
+        </p>
         <div className="mt-16 space-y-20 md:space-y-24">
           {signatureCases.map((c) => (
             <article
@@ -202,9 +207,14 @@ export default function Home() {
                 >
                   {c.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--color-ink-soft)] md:text-base">
-                  {c.client}<br />
-                  <span className="text-[var(--color-muted)]">{c.format}</span>
+                <p
+                  style={{ fontFamily: "var(--font-serif-ko)" }}
+                  className="mt-6 max-w-2xl border-l-2 border-[var(--color-accent)] pl-5 text-base italic leading-[1.85] text-[var(--color-ink)] md:text-lg"
+                >
+                  {c.lead}
+                </p>
+                <p className="mt-6 max-w-2xl text-sm leading-7 text-[var(--color-muted)] md:text-base">
+                  {c.client} · {c.format}
                 </p>
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
                   <div>
@@ -251,30 +261,48 @@ export default function Home() {
           ))}
         </div>
 
-        {/* MORE WORK ROW */}
-        <div className="mt-20 border-t border-[var(--color-line)] pt-10">
+        {/* CAPABILITIES */}
+        <div className="mt-24 border-t border-[var(--color-line)] pt-12">
           <p
             style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
             className="text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]"
           >
-            and more work in progress
+            what we can build &mdash; 할 수 있는 일들
           </p>
-          <ul className="mt-6 grid gap-4 text-sm md:grid-cols-2">
-            {moreWork.map((m) => (
-              <li
-                key={m.field}
-                className="flex items-baseline justify-between gap-4 border-b border-[var(--color-line)]/60 pb-3"
-              >
-                <span>
-                  <span className="text-[var(--color-ink)]">{m.field}</span>
-                  <span className="ml-2 text-[var(--color-muted)]">— {m.scope}</span>
-                </span>
-                <span className={`text-xs uppercase tracking-[0.14em] ${statusColor(m.status)}`}>
-                  {m.status}
-                </span>
-              </li>
+          <h3
+            style={{ fontFamily: "var(--font-serif-ko)" }}
+            className="mt-6 max-w-3xl text-xl leading-[1.4] tracking-[-0.02em] md:text-2xl"
+          >
+            웹 개발부터 AI 자동화, 콘텐츠 제작, 강의·코칭까지 — 한 사람이 끝까지 갑니다.
+          </h3>
+          <div className="mt-12 grid gap-y-12 gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((g) => (
+              <div key={g.label}>
+                <div className="flex items-baseline gap-3 border-b border-[var(--color-line)] pb-3">
+                  <span
+                    style={{ fontFamily: "var(--font-serif-ko)" }}
+                    className="text-base text-[var(--color-ink)] md:text-lg"
+                  >
+                    {g.label}
+                  </span>
+                  <span
+                    style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
+                    className="text-[11px] uppercase tracking-[0.16em] text-[var(--color-muted)]"
+                  >
+                    {g.english}
+                  </span>
+                </div>
+                <ul className="mt-4 space-y-2 text-sm leading-[1.7] text-[var(--color-ink-soft)]">
+                  {g.items.map((it) => (
+                    <li key={it} className="flex gap-2">
+                      <span className="text-[var(--color-accent)]">·</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -381,9 +409,9 @@ export default function Home() {
 
       {/* V. TRUST */}
       <section id="trust" className="scroll-mt-16 pb-28 md:pb-36">
-        <SectionHeader numeral="V" label="함께한 곳 · trust" />
+        <SectionHeader numeral="V" label="함께한 업종 · industries" />
         <p className="mt-10 max-w-2xl text-sm text-[var(--color-muted)]">
-          진행 중 또는 완료된 의뢰·강의·코칭 기준. v1은 익명 처리, 동의받은 곳부터 실명 전환합니다.
+          진행 중 또는 완료된 의뢰·강의·코칭 기준. 고객사 정보는 비공개로 두고 업종만 공개합니다.
         </p>
         <ul className="mt-10 grid gap-x-10 gap-y-3 md:grid-cols-2">
           {trustBar.map((t, i) => (
@@ -391,12 +419,14 @@ export default function Home() {
               key={i}
               className="grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-[var(--color-line)]/60 py-3 text-sm"
             >
-              <span className="text-[var(--color-ink)]">{t.name}</span>
               <span
-                style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-                className="text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]"
+                style={{ fontFamily: "var(--font-serif-ko)" }}
+                className="text-base text-[var(--color-ink)]"
               >
-                {t.tier}
+                {t.industry}
+              </span>
+              <span className="text-[12px] text-[var(--color-muted)]">
+                {t.note}
               </span>
             </li>
           ))}
@@ -410,55 +440,44 @@ export default function Home() {
           style={{ fontFamily: "var(--font-serif-ko)" }}
           className="mt-12 max-w-3xl text-3xl leading-[1.25] tracking-[-0.025em] md:text-[2.6rem]"
         >
-          반복되는 업무가 있다면,<br />
-          30분 안에 같이 봅니다.
+          필요하신 내용이 있으면<br />
+          바로 연락주세요.
         </h2>
         <div className="mt-14 grid gap-8 text-base md:grid-cols-3">
           <div>
-            <p
-              style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-              className="text-xs text-[var(--color-muted)] tracking-wider"
-            >
-              email
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              이메일
             </p>
-            <a href={`mailto:${studio.email}`} className="mt-2 block hover:text-[var(--color-accent)]">
+            <a
+              href={`mailto:${studio.email}`}
+              className="mt-2 block break-all hover:text-[var(--color-accent)]"
+            >
               {studio.email}
             </a>
           </div>
           <div>
-            <p
-              style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-              className="text-xs text-[var(--color-muted)] tracking-wider"
-            >
-              phone
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              전화
             </p>
             <a href="tel:+821046859570" className="mt-2 block hover:text-[var(--color-accent)]">
               {studio.phone}
             </a>
           </div>
           <div>
-            <p
-              style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-              className="text-xs text-[var(--color-muted)] tracking-wider"
-            >
-              kakaotalk
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              카카오톡
             </p>
             <p className="mt-2">{studio.kakao}</p>
           </div>
         </div>
-        <div className="mt-14 flex flex-wrap gap-3">
-          <a
-            href={`mailto:${studio.email}?subject=%5B의뢰%5D%20AI%20자동화%20프로젝트`}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] hover:bg-[var(--color-accent)]"
+        <div className="mt-16">
+          <p
+            style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
+            className="mb-5 text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]"
           >
-            프로젝트 의뢰 →
-          </a>
-          <a
-            href={`mailto:${studio.email}?subject=%5B의뢰%5D%20AI%20강의%20문의`}
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-ink)]/30 px-6 py-3 text-sm font-medium hover:border-[var(--color-ink)]"
-          >
-            강의 문의
-          </a>
+            inquiry form &mdash; 의뢰 폼
+          </p>
+          <InquiryForm />
         </div>
       </section>
 
@@ -473,7 +492,7 @@ export default function Home() {
           </span>
         </p>
         <p>
-          KAIST 전산학부 ·{" "}
+          KAIST 출신 ·{" "}
           <span style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}>
             Oh Jangseop
           </span>

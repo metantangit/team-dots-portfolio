@@ -60,6 +60,7 @@ export type SignatureCase = {
   category: string;
   field: string;
   title: string;
+  lead: string;
   client: string;
   format: string;
   built: string[];
@@ -67,12 +68,17 @@ export type SignatureCase = {
   funnel: string;
 };
 
+export const signatureIntro =
+  "dots-project가 일하는 기본 패턴은 같습니다. 강의나 코칭에서 한 분을 만나고, 그 자리에서 진짜 문제를 같이 풉니다. 거기서 나온 다음 단계가 공동 프로젝트로, 통합 시스템 구축으로, 조직 단위 교육으로 이어집니다. 아래 세 가지가 그 흐름을 가장 잘 보여주는 작업입니다.";
+
 export const signatureCases: SignatureCase[] = [
   {
     index: "I",
     category: "강의 한 번이 공동 프로젝트로",
     field: "부동산 일하시는 분께",
     title: "부동산 AI 하루 코스 — 4시간 만에 본인 손으로 돌리기",
+    lead:
+      "4시간짜리 강의 한 번. 끝나기 전에 다음 협업 제안이 먼저 나왔습니다. 강의가 영업 자료가 아니라, 그 자리에서 같이 푸는 작업이 되도록 설계했습니다.",
     client: "부동산 도메인 대표 H님",
     format: "1:1 풀데이 4시간 · 라이브 슬라이드 + 강의 종료 후 USB 자료까지",
     built: [
@@ -90,9 +96,11 @@ export const signatureCases: SignatureCase[] = [
   },
   {
     index: "II",
-    category: "강의 한 번이 시스템 구축으로",
+    category: "단발 강의가 통합 시스템 구축으로",
     field: "외식 프랜차이즈 통합 운영",
     title: "8매장 외식 프랜차이즈 AI 운영 도구 5개",
+    lead:
+      "기업 워크숍 한 번이 통합 시스템 본 계약으로 이어진 케이스. 8개 매장의 운영을 도구 위에서 다시 그렸고, 90분 라이브 데모로 1차 검증까지 마쳤습니다.",
     client: "연매출 ~800억 외식 프랜차이즈 D사 (흑돼지·고깃집 브랜드)",
     format: "단발 강의 한 번 → 통합 시스템 구축으로 확장 → 진행 중",
     built: [
@@ -111,9 +119,11 @@ export const signatureCases: SignatureCase[] = [
   },
   {
     index: "III",
-    category: "장기 1:1 코칭이 직원 교육으로",
-    field: "비즈니스 대표 1:1 장기 코칭",
+    category: "1:1 코칭이 조직 단위로",
+    field: "비즈니스 대표 장기 코칭",
     title: "대표님 한 분과 매주 2시간 — 사업 전반 AI 코칭",
+    lead:
+      "첫 주에 1시간이 2시간으로 자발적으로 늘었고, 지금은 직원 교육·파트너 확장 논의로 이어지는 중입니다. 깊은 1:1이 조직 단위 계약으로 퍼지는 흐름.",
     client: "전문직 1인 대표 S님",
     format: "1:1 장기 코칭 · 매주 수요일 2시간 · 강의 자료 68장",
     built: [
@@ -197,20 +207,68 @@ export const workPieces: WorkPiece[] = [
   },
 ];
 
-export type MoreWork = {
-  field: string;
-  client: string;
-  scope: string;
-  status: "진행 중" | "완료" | "lead";
+export type CapabilityGroup = {
+  label: string;
+  english: string;
+  items: string[];
 };
 
-export const moreWork: MoreWork[] = [
-  { field: "양평 펜션 그룹 M사", client: "M그룹", scope: "운영 관리 페이지 + 홈페이지 새로 만들기", status: "진행 중" },
-  { field: "교대역 플라워샵 B사", client: "B사 · flcha.kr", scope: "비즈니스 홈 + 주문 흐름", status: "진행 중" },
-  { field: "글로벌 카페 %A사", client: "%A사", scope: "AI 자동화 + 협업 논의", status: "lead" },
-  { field: "패션 D사", client: "D사", scope: "데이터 정리·분석", status: "완료" },
-  { field: "자양동 상가 임차인 확보", client: "상호님", scope: "AI 자율 실행 — 본인 대신 알아서 진행", status: "완료" },
-  { field: "1:1 사업 멘토링", client: "별헤는밤", scope: "사업 컨설팅", status: "완료" },
+export const capabilities: CapabilityGroup[] = [
+  {
+    label: "웹·홈페이지",
+    english: "web & homepage",
+    items: [
+      "비즈니스 홈페이지 — 운영자가 직접 고치는 구조",
+      "운영 관리 페이지 (사진·공지·상품 직접 수정)",
+      "주문·예약 흐름 설계",
+      "모바일 최적화 · SEO 세팅",
+      "랜딩 페이지 · 포트폴리오 사이트",
+    ],
+  },
+  {
+    label: "AI 자동화",
+    english: "ai automation",
+    items: [
+      "운영 자동화 — 스케줄·인력 배치·메뉴 보드",
+      "CCTV 영상 분석 — 손님 동선·체류 자동 파악",
+      "AI 자율 실행 — 목표 받고 본인 대신 진행",
+      "반복 업무 자동 흐름 — 5개 이상 묶음",
+      "AI 도구 도입 진단·우선순위 설계",
+    ],
+  },
+  {
+    label: "데이터·리서치",
+    english: "data & research",
+    items: [
+      "매출·운영 데이터 정리·분석",
+      "부동산 실거래·경매 자동 분석",
+      "주식·코인 자동매매 시스템",
+      "리서치 자료 → 다음 행동까지 정리",
+      "세무·회계 자동화",
+    ],
+  },
+  {
+    label: "콘텐츠 자동화",
+    english: "content automation",
+    items: [
+      "유튜브 영상 자동 제작 (대본·음성·편집까지)",
+      "PPT·발표 자료 자동 생성",
+      "강의 자료 디자인 시스템",
+      "AI 음성 합성 · 채널 전용 보이스",
+    ],
+  },
+  {
+    label: "강의·코칭",
+    english: "lectures & coaching",
+    items: [
+      "1:1 풀데이 (4시간 · 하루 코스)",
+      "장기 1:1 코칭 (매주 정기)",
+      "기업 워크숍 · 정기 강사",
+      "소그룹 (최대 3명)",
+      "AI 입문 1시간 코칭",
+      "1:1 사업 멘토링·컨설팅",
+    ],
+  },
 ];
 
 export const sessions: Session[] = [
@@ -235,11 +293,20 @@ export const sessions: Session[] = [
   {
     date: "",
     title: "AI 운영 자동화 워크숍",
-    audience: "외식 프랜차이즈 D사",
+    audience: "외식 프랜차이즈",
     format: "기업 워크숍 1회",
     status: "완료",
     takeaway:
       "이 강의 한 번이 통합 AI 시스템 5개 모듈 구축으로 이어졌습니다.",
+  },
+  {
+    date: "",
+    title: "AI 입문 1:1 코칭",
+    audience: "소상공인 · 처음 시작하시는 분",
+    format: "1회 · 1시간",
+    status: "완료",
+    takeaway:
+      "AI를 처음 깔아본 분에게 본인 업무 한 가지를 실제로 돌려보게 합니다. 그 자리에서 손에 쥐고 가게.",
   },
   {
     date: "",
@@ -261,8 +328,8 @@ export const sessions: Session[] = [
   },
   {
     date: "",
-    title: "Claude Code 코딩 과외",
-    audience: "스타트업 N사",
+    title: "AI 개발 도구 코딩 과외",
+    audience: "스타트업 팀",
     format: "소그룹 · 최대 3명",
     status: "진행 중",
     takeaway:
@@ -270,39 +337,12 @@ export const sessions: Session[] = [
   },
   {
     date: "",
-    title: "AI 워크숍 1·2회차",
-    audience: "교육 W사",
+    title: "AI 워크숍 정기 강사",
+    audience: "교육 기관",
     format: "정기 워크숍",
     status: "예정",
     takeaway:
       "5월·6월 두 차례. 정기 강사진으로 자리잡기 위한 시그니처 라인업.",
-  },
-  {
-    date: "",
-    title: "Claude 1:1 입문 코칭",
-    audience: "소상공인",
-    format: "1회 · 1시간",
-    status: "완료",
-    takeaway:
-      "AI를 처음 깔아본 분에게 본인 업무 한 가지를 실제로 돌려보게 합니다.",
-  },
-  {
-    date: "",
-    title: "랩 세미나 발표",
-    audience: "MBA 9기",
-    format: "세미나",
-    status: "완료",
-    takeaway:
-      "강연 자체보다 네트워크 만들기 목적. 자료 14장은 다른 강연에도 재사용 가능.",
-  },
-  {
-    date: "",
-    title: "물류 임원 정기 과외",
-    audience: "물류 W사 임원",
-    format: "격주 정기 · 광명 현장",
-    status: "예정",
-    takeaway:
-      "본인 업무 자료를 그대로 받아 매번 한 가지씩 실제로 적용해봅니다.",
   },
 ];
 
@@ -315,8 +355,8 @@ export type ExperimentProduct = {
 
 export const experiments: ExperimentProduct[] = [
   {
-    name: "Content Factory",
-    channel: "유튜브 영상 자동 제작",
+    name: "유튜브 영상 자동 제작 시스템",
+    channel: "콘텐츠 자동화",
     oneliner: "리서치 → 대본 → 음성 → 영상 → 배포까지 8단계 자동 생성.",
     highlights: [
       "AI 음성 합성 모델로 채널 전용 목소리 만들기",
@@ -325,29 +365,29 @@ export const experiments: ExperimentProduct[] = [
     ],
   },
   {
-    name: "Newlisting Bot",
-    channel: "신규 상장 코인 자동 매매",
-    oneliner: "거래소 신규 상장 코인을 자동으로 사고팝니다.",
+    name: "신규 상장 코인 자동매매봇",
+    channel: "퀀트 매매",
+    oneliner: "거래소에 새로 올라온 코인을 정해진 규칙대로 자동으로 사고팝니다.",
     highlights: [
-      "$130 실제 자금으로 24시간 운영 중",
+      "실제 자금 $130으로 24시간 운영 중",
       "백테스트 연 96.5% 수익률",
-      "손실 차단 + 기술적 지표 자동 매매",
+      "손실 차단 · 기술적 지표 기반 매매 규칙",
     ],
   },
   {
-    name: "Auction System",
-    channel: "부동산 경매 자동 분석",
-    oneliner: "경매 물건 PDF · 실거래 비교까지 자동.",
+    name: "부동산 경매 자동 분석기",
+    channel: "부동산 분석",
+    oneliner: "경매 물건 PDF를 읽고 주변 실거래까지 한 번에 비교합니다.",
     highlights: [
-      "306건 동시 분석",
+      "한 번에 306건 동시 분석",
       "AI 문서 분석 처리 비용 78% 절감",
-      "공공 부동산 데이터 + 시세 패널",
+      "공공 부동산 데이터 + 시세 패널 자동 정리",
     ],
   },
   {
-    name: "Team Dots Dashboard",
-    channel: "내부 팀 운영 + 코인 투자 모니터링",
-    oneliner: "4개 팀 통합 관리 + 실시간 시장 모니터.",
+    name: "팀 통합 대시보드 + 시장 모니터",
+    channel: "내부 운영",
+    oneliner: "4개 팀을 한 화면에서 운영하고 시장 흐름을 실시간으로 봅니다.",
     highlights: [
       "크립토 · R&D · 비즈니스 · 부동산 4개 팀 통합",
       "수익 기회 분석 · 11개 거래소 펀딩비 비교",
@@ -355,37 +395,37 @@ export const experiments: ExperimentProduct[] = [
     ],
   },
   {
-    name: "Autopilot",
-    channel: "AI 자율 실행 시스템",
-    oneliner: "목표 한 줄을 받고 끝까지 알아서 실행합니다.",
+    name: "AI 비서 — 목표 받고 알아서 실행",
+    channel: "자율 실행 AI",
+    oneliner: "목표 한 줄을 주면 사람 개입 없이 끝까지 알아서 진행합니다.",
     highlights: [
-      "자양동 상가 임차인 확보에 실제 사용",
-      "단계 분해 · 외부 도구 호출 · 결과 검증",
-      "사람 개입 없이 일 단위 자율 운영",
+      "자양동 상가 임차인 확보에 실제로 사용해서 성사",
+      "단계 분해 · 외부 도구 호출 · 결과 검증까지",
+      "사람 개입 없이 하루 단위로 알아서 돌아감",
     ],
   },
 ];
 
 export const trustBar = [
-  { tier: "외식 · 프랜차이즈", name: "외식 프랜차이즈 D사 (연매출 ~800억)" },
-  { tier: "외식 · 프랜차이즈", name: "글로벌 카페 %A사" },
-  { tier: "숙박 · 펜션", name: "양평 펜션 그룹 M사" },
-  { tier: "리테일 · 플라워", name: "교대역 플라워샵 B사" },
-  { tier: "리테일 · 패션", name: "패션 D사" },
-  { tier: "전문직 · 회계", name: "회계법인 J사" },
-  { tier: "전문직 · 부동산", name: "부동산 도메인 P사" },
-  { tier: "교육 · 컨설팅", name: "컨설팅 N사" },
-  { tier: "교육 · 컨설팅", name: "교육 W사" },
-  { tier: "금융", name: "신한금융 S지점" },
-  { tier: "물류", name: "물류 W사" },
-  { tier: "골프 · 라이프스타일", name: "골프 Y사" },
+  { industry: "요식업", note: "프랜차이즈 외식" },
+  { industry: "요식업", note: "글로벌 카페" },
+  { industry: "숙박업", note: "펜션" },
+  { industry: "리테일", note: "플라워" },
+  { industry: "리테일", note: "패션 커머스" },
+  { industry: "전문직", note: "회계 · 세무" },
+  { industry: "전문직", note: "부동산" },
+  { industry: "금융", note: "은행" },
+  { industry: "교육 · 컨설팅", note: "정기 워크숍" },
+  { industry: "교육 · 컨설팅", note: "1:1 멘토링" },
+  { industry: "물류", note: "현장 운영" },
+  { industry: "라이프스타일", note: "골프 · 레저" },
 ];
 
 export const about = {
   title: "강의로 사람을 만나고, 개발로 그 반복을 남깁니다.",
   body:
-    "오장섭은 KAIST 전산학부 출신으로, AI 강의와 실제 시스템 개발을 함께 합니다. 강의는 사람을 만나기 위한 언어이고, 개발은 그 만남에서 발견한 반복을 오래 쓰는 도구로 남기는 일입니다.",
-  facts: ["KAIST 전산학부", "1인 작업실", "AI 워크숍 12회 이상", "주식회사 이집저집"],
+    "오장섭은 KAIST 출신으로, AI 강의와 실제 시스템 개발을 함께 합니다. 강의는 사람을 만나기 위한 언어이고, 개발은 그 만남에서 발견한 반복을 오래 쓰는 도구로 남기는 일입니다.",
+  facts: ["KAIST 출신", "1인 작업실", "AI 워크숍 12회 이상", "주식회사 이집저집"],
 };
 
 export const promiseCards = services;
@@ -393,5 +433,5 @@ export const stats = [
   { value: "12+", label: "강의 · 코칭" },
   { value: "5", label: "AI 모듈 구축" },
   { value: "852", label: "실거래 데이터" },
-  { value: "KAIST", label: "전산학부" },
+  { value: "KAIST", label: "출신" },
 ];
