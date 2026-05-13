@@ -172,7 +172,8 @@ export default function Home() {
           style={{ fontFamily: "var(--font-serif-ko)" }}
           className="mt-12 max-w-3xl text-2xl leading-[1.35] tracking-[-0.02em] md:text-[2rem]"
         >
-          강의로 만난 한 분이, 더 큰 협업으로 이어지는 흐름.
+          클로드 교육으로 시작해, 더 큰 작업으로 이어지는<br className="hidden md:block" />
+          세 가지 흐름.
         </h2>
         <p className="mt-6 max-w-2xl text-base leading-[1.85] text-[var(--color-ink-soft)] md:text-lg">
           {signatureIntro}
