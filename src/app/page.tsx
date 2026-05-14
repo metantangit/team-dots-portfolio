@@ -47,8 +47,8 @@ const statusColor = (s: string) =>
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-14">
-      <header className="flex items-baseline justify-between pb-24 md:pb-32 text-sm">
+    <main className="mx-auto max-w-5xl px-5 py-8 md:px-12 md:py-14">
+      <header className="flex items-baseline justify-between pb-16 md:pb-32 text-sm">
         <Link href="/" className="flex items-baseline gap-1.5">
           <span className="font-medium tracking-[-0.01em]">dots-project</span>
           <span
@@ -73,30 +73,30 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="pb-28 md:pb-40">
+      <section className="pb-20 md:pb-40">
         <p
           style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-          className="text-base text-[var(--color-accent)] md:text-lg"
+          className="text-sm text-[var(--color-ink-soft)] md:text-lg"
         >
           ThTh, Seoul, KR
         </p>
         <h1
           style={{ fontFamily: "var(--font-serif-ko)" }}
-          className="mt-8 text-[2.6rem] leading-[1.08] tracking-[-0.035em] md:text-[4.5rem]"
+          className="mt-6 text-[2rem] leading-[1.12] tracking-[-0.03em] md:mt-8 md:text-[4.5rem] md:leading-[1.08] md:tracking-[-0.035em]"
         >
           KAIST 출신 개발자의<br />
           <span className="relative inline-block">
             AI 비즈니스 자동화
             <span
               style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-              className="text-[var(--color-accent)]"
+              className="text-[var(--color-ink-soft)]"
             >
               .
             </span>
           </span>
         </h1>
-        <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr] md:items-end">
-          <p className="max-w-xl text-lg leading-[1.75] text-[var(--color-ink-soft)] md:text-xl">
+        <div className="mt-8 grid gap-8 md:mt-10 md:gap-10 md:grid-cols-[2fr_1fr] md:items-end">
+          <p className="max-w-xl text-base leading-[1.75] text-[var(--color-ink-soft)] md:text-xl">
             반복되는 운영을 AI 도구로 정리합니다.<br />
             강의로 만난 문제를, 도구로 남기는 일을 합니다.
           </p>
@@ -107,7 +107,7 @@ export default function Home() {
             >
               founder &amp; operator
             </p>
-            <p className="mt-3">
+            <p className="mt-2 break-all">
               <a href={`mailto:${studio.email}`} className="hover:text-[var(--color-ink)]">
                 {studio.email}
               </a>
@@ -117,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* I. SERVICES */}
-      <section id="services" className="scroll-mt-16 pb-28 md:pb-36">
+      <section id="services" className="scroll-mt-16 pb-20 md:pb-36">
         <SectionHeader numeral="I" label="서비스 · what we do" />
         <h2
           style={{ fontFamily: "var(--font-serif-ko)" }}
@@ -155,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* II. SIGNATURE WORK */}
-      <section id="work" className="scroll-mt-16 pb-28 md:pb-36">
+      <section id="work" className="scroll-mt-16 pb-20 md:pb-36">
         <SectionHeader
           numeral="II"
           label="시그니처 작업 · signature cases"
@@ -178,7 +178,7 @@ export default function Home() {
         <p className="mt-6 max-w-2xl text-base leading-[1.85] text-[var(--color-ink-soft)] md:text-lg">
           {signatureIntro}
         </p>
-        <div className="mt-16 space-y-20 md:space-y-24">
+        <div className="mt-12 space-y-16 md:mt-16 md:space-y-24">
           {signatureCases.map((c) => (
             <article
               key={c.index}
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
 
         {/* CAPABILITIES */}
-        <div className="mt-24 border-t border-[var(--color-line)] pt-12">
+        <div className="mt-16 border-t border-[var(--color-line)] pt-10 md:mt-24 md:pt-12">
           <p
             style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
             className="text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]"
@@ -308,7 +308,7 @@ export default function Home() {
       </section>
 
       {/* III. LECTURES */}
-      <section id="lectures" className="scroll-mt-16 pb-28 md:pb-36">
+      <section id="lectures" className="scroll-mt-16 pb-20 md:pb-36">
         <SectionHeader
           numeral="III"
           label="강의 · lectures & coaching"
@@ -361,7 +361,7 @@ export default function Home() {
       </section>
 
       {/* IV. EXPERIMENTS */}
-      <section id="experiments" className="scroll-mt-16 pb-28 md:pb-36">
+      <section id="experiments" className="scroll-mt-16 pb-20 md:pb-36">
         <SectionHeader numeral="IV" label="사이드 · built by dots" />
         <h2
           style={{ fontFamily: "var(--font-serif-ko)" }}
@@ -409,34 +409,26 @@ export default function Home() {
       </section>
 
       {/* V. TRUST */}
-      <section id="trust" className="scroll-mt-16 pb-28 md:pb-36">
+      <section id="trust" className="scroll-mt-16 pb-20 md:pb-36">
         <SectionHeader numeral="V" label="함께한 업종 · industries" />
         <p className="mt-10 max-w-2xl text-sm text-[var(--color-muted)]">
           진행 중 또는 완료된 의뢰·강의·코칭 기준. 고객사 정보는 비공개로 두고 업종만 공개합니다.
         </p>
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
           {trustBar.map((t, i) => (
             <li
               key={i}
-              className="group flex flex-col justify-between gap-6 rounded-md border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition hover:border-[var(--color-ink)]/50 md:p-7"
+              className="border-t border-[var(--color-line)] pt-3"
             >
-              <span
-                style={{ fontFamily: "var(--font-serif-en)", fontStyle: "italic" }}
-                className="text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]"
+              <p
+                style={{ fontFamily: "var(--font-serif-ko)" }}
+                className="text-lg leading-tight tracking-[-0.02em] text-[var(--color-ink)] md:text-xl"
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <p
-                  style={{ fontFamily: "var(--font-serif-ko)" }}
-                  className="text-2xl leading-tight tracking-[-0.02em] text-[var(--color-ink)] md:text-[1.75rem]"
-                >
-                  {t.industry}
-                </p>
-                <p className="mt-3 text-sm text-[var(--color-muted)]">
-                  {t.note}
-                </p>
-              </div>
+                {t.industry}
+              </p>
+              <p className="mt-1.5 text-xs leading-relaxed text-[var(--color-muted)] md:text-sm">
+                {t.notes.join(" · ")}
+              </p>
             </li>
           ))}
         </ul>
@@ -447,7 +439,7 @@ export default function Home() {
         <SectionHeader numeral="VI" label="연락 · contact" />
         <h2
           style={{ fontFamily: "var(--font-serif-ko)" }}
-          className="mt-12 max-w-3xl text-3xl leading-[1.25] tracking-[-0.025em] md:text-[2.6rem]"
+          className="mt-10 max-w-3xl text-[1.75rem] leading-[1.25] tracking-[-0.025em] md:mt-12 md:text-[2.6rem]"
         >
           필요하신 내용이 있으면<br />
           바로 연락주세요.

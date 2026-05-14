@@ -369,9 +369,9 @@ export const experiments: ExperimentProduct[] = [
     channel: "퀀트 매매",
     oneliner: "거래소에 새로 올라온 코인을 정해진 규칙대로 자동으로 사고팝니다.",
     highlights: [
-      "실제 자금 $130으로 24시간 운영 중",
-      "백테스트 연 96.5% 수익률",
-      "손실 차단 · 기술적 지표 기반 매매 규칙",
+      "거래소 신규 상장을 실시간 감지해 규칙대로 자동 진입·청산",
+      "손절 · 기술적 지표 기반 리스크 관리 자동화",
+      "실제 계좌로 24시간 무인 운영 — 사람 개입 없이",
     ],
   },
   {
@@ -407,18 +407,14 @@ export const experiments: ExperimentProduct[] = [
 ];
 
 export const trustBar = [
-  { industry: "요식업", note: "프랜차이즈 외식" },
-  { industry: "요식업", note: "글로벌 카페" },
-  { industry: "숙박업", note: "펜션" },
-  { industry: "리테일", note: "플라워" },
-  { industry: "리테일", note: "패션 커머스" },
-  { industry: "전문직", note: "회계 · 세무" },
-  { industry: "전문직", note: "부동산" },
-  { industry: "금융", note: "은행" },
-  { industry: "교육 · 컨설팅", note: "정기 워크숍" },
-  { industry: "교육 · 컨설팅", note: "1:1 멘토링" },
-  { industry: "물류", note: "현장 운영" },
-  { industry: "라이프스타일", note: "골프 · 레저" },
+  { industry: "요식업", notes: ["프랜차이즈 외식", "글로벌 카페"] },
+  { industry: "리테일", notes: ["플라워", "패션 커머스"] },
+  { industry: "전문직", notes: ["회계 · 세무", "부동산"] },
+  { industry: "교육 · 컨설팅", notes: ["정기 워크숍", "1:1 멘토링"] },
+  { industry: "숙박업", notes: ["펜션"] },
+  { industry: "금융", notes: ["은행"] },
+  { industry: "물류", notes: ["현장 운영"] },
+  { industry: "라이프스타일", notes: ["골프 · 레저"] },
 ];
 
 export const about = {
